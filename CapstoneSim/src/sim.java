@@ -20,6 +20,7 @@ public class sim implements ActionListener, ChangeListener {
 		frame.setSize(new Dimension(400, 300));
 		frame.setLayout(new BorderLayout());
 		jp = new JPanel();
+		g = jp.getGraphics();
 		
 		
 		
