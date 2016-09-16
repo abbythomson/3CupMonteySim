@@ -1,17 +1,30 @@
 
 public class AnimationRunner implements Runnable {
 	
-	private AnimationPanel panel;
+	private AnimationPanelA panel;
 	
-	public AnimationRunner(AnimationPanel panel) {
+	public AnimationRunner(AnimationPanelA panel) {
 		this.panel = panel;
 	}
 	
 	@Override
 	public void run() {
-		// for loop?
-		panel.movement1();
-
+		for(int i = 0; i < 10; i++){
+			double randMove = (int)(Math.random()*3+1);
+			System.out.println("Random " + randMove);
+			if(randMove==1){
+				System.out.println("1");
+				panel.movement1();
+			}
+			else if (randMove==2){
+				System.out.println("2");
+				panel.movment2();
+			}
+			else{
+				System.out.println("3");
+				panel.movment3();	
+			}	
+		}
 		
 	}
 
