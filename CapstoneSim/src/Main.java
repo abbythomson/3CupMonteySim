@@ -6,9 +6,12 @@ public class Main {
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                AnimationTestFrame frame = new AnimationTestFrame();
-                frame.setVisible(true);
-                frame.startAnimation();
+               //TriAnimationFrame triFrame = new TriAnimationFrame();
+                //triFrame.setVisible(true);
+                //triFrame.startAnimation();
+            	LineAnimationFrame lineFrame = new LineAnimationFrame();
+                lineFrame.setVisible(true);
+                lineFrame.startAnimation();
                 
             }
         });

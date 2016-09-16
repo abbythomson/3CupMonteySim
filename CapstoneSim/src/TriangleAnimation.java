@@ -5,7 +5,7 @@ import java.awt.Polygon;
 
 import javax.swing.JPanel;
 
-public class AnimationPanelA extends JPanel {
+public class TriangleAnimation extends JPanel {
 	
 	
 	private int xA = 150; 

@@ -9,19 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AnimationTestFrame extends JFrame {
+public class LineAnimationFrame extends JFrame {
 	
-	AnimationPanelA animationPanel;
-	AnimationPanelB aP;
-	public AnimationTestFrame() {
+	LineAnimation animationPanel;
+	//LineAnimation aP;
+	public LineAnimationFrame() {
 		super("Animation Test");
 		
 		//this.setSize(800, 600);
-		//animationPanel =new AnimationPanelA(); 
-		aP = new AnimationPanelB();
+		animationPanel =new LineAnimation(); 
+		//aP = new LineAnimation();
 		
-		//this.add(animationPanel, BorderLayout.CENTER);
-		this.add(aP, BorderLayout.CENTER);
+		this.add(animationPanel, BorderLayout.CENTER);
+		//this.add(aP, BorderLayout.CENTER);
 
 		JPanel south = new JPanel(new BorderLayout());
 		JPanel labels = new JPanel(new GridLayout(1,5));
@@ -43,7 +43,7 @@ public class AnimationTestFrame extends JFrame {
 	
 	public void startAnimation() {
 		//new Thread(new AnimationRunner(animationPanel)).start();
-		new Thread(new AnimationRunner(aP)).start();
+		new Thread(new LineAnimationRunner(animationPanel)).start();
 	}
 
 	

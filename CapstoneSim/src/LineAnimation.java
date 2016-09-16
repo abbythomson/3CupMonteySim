@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class AnimationPanelB extends JPanel{
+public class LineAnimation extends JPanel{
 	private int xA = 110; 
 	private int yA = 330;
 	private int xB = 360;
