@@ -12,14 +12,16 @@ import javax.swing.JTextField;
 public class AnimationTestFrame extends JFrame {
 	
 	AnimationPanelA animationPanel;
-	
+	AnimationPanelB aP;
 	public AnimationTestFrame() {
 		super("Animation Test");
 		
 		//this.setSize(800, 600);
-		animationPanel =new AnimationPanelA(); 
+		//animationPanel =new AnimationPanelA(); 
+		aP = new AnimationPanelB();
 		
-		this.add(animationPanel, BorderLayout.CENTER);
+		//this.add(animationPanel, BorderLayout.CENTER);
+		this.add(aP, BorderLayout.CENTER);
 
 		JPanel south = new JPanel(new BorderLayout());
 		JPanel labels = new JPanel(new GridLayout(1,5));
@@ -40,7 +42,8 @@ public class AnimationTestFrame extends JFrame {
 	}
 	
 	public void startAnimation() {
-		new Thread(new AnimationRunner(animationPanel)).start();
+		//new Thread(new AnimationRunner(animationPanel)).start();
+		new Thread(new AnimationRunner(aP)).start();
 	}
 
 	
