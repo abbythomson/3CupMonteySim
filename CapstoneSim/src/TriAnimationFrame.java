@@ -12,16 +12,13 @@ import javax.swing.JTextField;
 public class TriAnimationFrame extends JFrame {
 	
 	TriangleAnimation animationPanel;
-	//LineAnimation aP;
 	public TriAnimationFrame() {
 		super("Animation Test");
 		
 		//this.setSize(800, 600);
 		animationPanel =new TriangleAnimation(); 
-		//aP = new LineAnimation();
 		
 		this.add(animationPanel, BorderLayout.CENTER);
-		//this.add(aP, BorderLayout.CENTER);
 
 		JPanel south = new JPanel(new BorderLayout());
 		JPanel labels = new JPanel(new GridLayout(1,5));
@@ -31,8 +28,10 @@ public class TriAnimationFrame extends JFrame {
 		labels.add(new JLabel("C"));
 		south.add(labels,BorderLayout.NORTH);
 		JPanel input = new JPanel(new FlowLayout());
-		input.add(new JTextField("First Guess"));
-		input.add(new JTextField("Final Guess"));
+		input.add(new JLabel("First Guess"));
+		input.add(new JTextField(3));
+		input.add(new JLabel("Final Guess"));
+		input.add(new JTextField(3));
 		input.add(new JButton("Next"));
 		south.add(input,BorderLayout.CENTER);
 		this.add(south,BorderLayout.SOUTH);
@@ -42,7 +41,6 @@ public class TriAnimationFrame extends JFrame {
 	}
 	
 	public void startAnimation() {
-		//new Thread(new AnimationRunner(animationPanel)).start();
 		new Thread(new TriAnimationRunner(animationPanel)).start();
 	}
 
