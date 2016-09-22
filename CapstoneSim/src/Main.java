@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Main {
 
@@ -6,6 +7,7 @@ public class Main {
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
+            	
                 TriAnimationFrame triFrame = new TriAnimationFrame();
                 triFrame.setVisible(true);
                 triFrame.startAnimation();

@@ -26,16 +26,16 @@ public class TriangleAnimation extends JPanel {
 		xC = 432;
 		yC = 354;
 		
-		int step = 4;
-		for(int i=0;i<30;i++){
-			if(i==15){
+		int step = -2;
+		for(int i=0;i<100;i++){
+			if(i==50){
 				step=step*-1;
 			}
-			xA=xA+step;
+			yA=yA+step;
 			
 			repaint();
 			try {
-				Thread.sleep(3);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {}
 		}
 
@@ -157,14 +157,14 @@ public class TriangleAnimation extends JPanel {
 	public void paint(Graphics g) {
 		g.clearRect(0, 0, this.getWidth(),this.getHeight());
 		if(ball){
-			System.out.println(ball);
 			g.setColor(Color.BLUE);
-			g.fillOval(xA, yA, 50, 50);
+			g.fillOval(171, 410, 50, 50);
 		}
 		g.setColor(Color.RED);
 		g.fillRect(xA, yA, 100, 120);
 		g.fillRect(xB, yB, 100, 120);
 		g.fillRect(xC, yC, 100, 120);
+		
 	}
 	
 	@Override

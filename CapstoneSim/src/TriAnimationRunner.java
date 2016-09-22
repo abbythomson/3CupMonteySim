@@ -12,6 +12,7 @@ public class TriAnimationRunner implements Runnable {
 		panel.startAnim();
 		for(int i = 0; i < 10; i++){
 			double randMove = (int)(Math.random()*3+1);
+			System.out.println(randMove);
 			if(randMove==1){
 				panel.movement1();
 			}
@@ -22,10 +23,6 @@ public class TriAnimationRunner implements Runnable {
 				panel.movment3();
 			}	
 		}
-		for (int j=0; j<5; j++){
-			panel.movement1();
-		}
-		//panel.movment3();
 	}
 
 }
