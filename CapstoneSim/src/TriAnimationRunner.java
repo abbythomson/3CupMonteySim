@@ -10,9 +10,8 @@ public class TriAnimationRunner implements Runnable {
 	@Override
 	public void run() {
 		panel.startAnim();
-		for(int i = 0; i < 10; i++){
+		for(int i = 0; i < 20; i++){
 			double randMove = (int)(Math.random()*3+1);
-			System.out.println(randMove);
 			if(randMove==1){
 				panel.movement1();
 			}
