@@ -11,8 +11,8 @@ public class Main {
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-            	int robotAssist = JOptionPane.showConfirmDialog(null, "R?", "R?", JOptionPane.YES_NO_OPTION);
-            	String currentEmail = JOptionPane.showInputDialog("Please enter your Augustana Email");
+            	//int robotAssist = JOptionPane.showConfirmDialog(null, "R?", "R?", JOptionPane.YES_NO_OPTION);
+            	//String currentEmail = JOptionPane.showInputDialog("Please enter your Augustana Email");
             	JOptionPane.showMessageDialog(null, "Ready?");
                 /*TriAnimationFrame triFrame = new TriAnimationFrame();
                 triFrame.setVisible(true);
@@ -20,13 +20,13 @@ public class Main {
             	LineAnimationFrame lineFrame = new LineAnimationFrame();
                 lineFrame.setVisible(true);
                 lineFrame.startAnimation();
-                RecordWriter writer = new RecordWriter();
-                try {
+                //RecordWriter writer = new RecordWriter();
+                /*try {
 					writer.writeData(currentEmail);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
                 
             }
         });

@@ -61,7 +61,7 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 		input.add(next);
 		south.add(input, BorderLayout.CENTER);
 		this.add(south, BorderLayout.SOUTH);
-		
+
 		trialNum = 1;
 
 		curTrial = new JLabel();
@@ -88,15 +88,16 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 		String firstG;
 		String finalG;
 		if (sourceName.equals("Next")) {
+			trialNum++;
+			firstG = firstGuess.getText();
+			finalG = finalGuess.getText();
+			System.out.println("First: " + firstG + "   Final: " + finalG);
+			firstGuess.setText("");
+			finalGuess.setText("");
+			curTrial.setText("Trial: " + String.valueOf(trialNum));
+			System.out.println("First: " + firstG);
+			System.out.println("Final: " + finalG);
 			if (trialNum < 20) {
-				trialNum++;
-				firstG = firstGuess.getSelectedText();
-				finalG = finalGuess.getSelectedText();
-				firstGuess.setText("");
-				finalGuess.setText("");
-				curTrial.setText("Trial: "+ String.valueOf(trialNum));
-				System.out.println("First: " + firstG);
-				System.out.println("Final: " + finalG);
 				startAnimation();
 
 			}
