@@ -10,18 +10,15 @@ public class LineAnimationRunner implements Runnable {
 	@Override
 	public void run() {
 		panel.startAnim();
-		for(int i = 0; i < 24; i++){
+		for(int i = 0; i < 15; i++){
 			double randMove = (int)(Math.random()*3+1);
 			if(randMove==1){
-				System.out.println("A");
 				panel.movment1();
 			}
 			else if (randMove==2){
-				System.out.println("B");
 				panel.movment2();
 			}
 			else{
-				System.out.println("C");
 				panel.movment3();
 			}	
 		}

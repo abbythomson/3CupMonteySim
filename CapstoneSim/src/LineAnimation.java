@@ -105,7 +105,7 @@ public class LineAnimation extends JPanel{
 		g.clearRect(0, 0, this.getWidth(),this.getHeight());
 		if(ball){
 			g.setColor(Color.BLUE);
-			g.fillOval(150, 400, 50, 50);
+			g.fillOval(140, 400, 50, 50);
 		}
 		g.setColor(Color.RED);
 		g.fillRect(xA, yA, 100, 120);

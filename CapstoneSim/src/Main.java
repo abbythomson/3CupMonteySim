@@ -11,22 +11,29 @@ public class Main {
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-            	//int robotAssist = JOptionPane.showConfirmDialog(null, "R?", "R?", JOptionPane.YES_NO_OPTION);
-            	//String currentEmail = JOptionPane.showInputDialog("Please enter your Augustana Email");
+            	int robotAssist = JOptionPane.showConfirmDialog(null, "R?", "R?", JOptionPane.YES_NO_OPTION);
+            	String currentEmail = JOptionPane.showInputDialog("Please enter your Augustana Email");
             	JOptionPane.showMessageDialog(null, "Ready?");
                 /*TriAnimationFrame triFrame = new TriAnimationFrame();
                 triFrame.setVisible(true);
                 triFrame.startAnimation();*/
-            	LineAnimationFrame lineFrame = new LineAnimationFrame();
+            	LineAnimationFrame lineFrame = null;
+                RecordWriter writer = new RecordWriter();
+            	DataStore data = new DataStore();
+            	data.setRobot(robotAssist);
+				try {
+					lineFrame = new LineAnimationFrame(data,writer);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                 lineFrame.setVisible(true);
                 lineFrame.startAnimation();
-                //RecordWriter writer = new RecordWriter();
-                /*try {
-					writer.writeData(currentEmail);
+                try {
+					writer.updataEmailList(currentEmail);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}*/
+				}
                 
             }
         });
