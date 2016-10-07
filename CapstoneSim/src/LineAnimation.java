@@ -5,17 +5,19 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class LineAnimation extends JPanel{
-	private int xA = 115; 
+	private int xA = 200; 
 	private int yA = 330;
-	private int xB = 355;
+	private int xB = 750;
 	private int yB = 330;
-	private int xC = 595;
+	private int xC = 1300;
 	private int yC = 330;
 	private boolean ball = false;
+	private int ballX = 250;
+	private int ballY = 425;
 	
-	public void startAnim(){
+	public void liftA(){
 		ball=true;
-		int step = -2;
+		int step = -4;
 		for(int i=0;i<100;i++){
 			if(i==50){
 				step=step*-1;
@@ -30,13 +32,53 @@ public class LineAnimation extends JPanel{
 		reset();
 		ball=false;
 	}
+	
+	public void liftB(){
+		ball=true;
+		ballX = 380;
+		ballY = 330;
+		int step = -2;
+		for(int i=0;i<100;i++){
+			if(i==50){
+				step=step*-1;
+			}
+			yB=yB+step;
+			
+			repaint();
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {}
+		}
+		reset();
+		ball=false;		
+	}
+	
+	public void liftC(){
+		ball=true;
+		ballX = 620;
+		ballY = 330;
+		int step = -2;
+		for(int i=0;i<100;i++){
+			if(i==50){
+				step=step*-1;
+			}
+			yC=yC+step;
+			
+			repaint();
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {}
+		}
+		reset();
+		ball=false;
+	}
 	public void movment1(){
-		int xStep = 240/30;
+		int xStep = 550/50;
 				
-		for(int i=0; i<30;i++){
+		for(int i=0; i<50;i++){
 			xA = xA + xStep;
 			xB = xB - xStep;
-			if(i<15){
+			if(i<50){
 				yA--;
 				yB++;
 			}
@@ -46,7 +88,7 @@ public class LineAnimation extends JPanel{
 			}
 			repaint();
 			try {
-				Thread.sleep(5);
+				Thread.sleep(4);
 			} catch (InterruptedException e) {}
 		}
 		reset();
@@ -54,13 +96,13 @@ public class LineAnimation extends JPanel{
 	
 	public void movment2(){
 	
-		int xStep = 240/30;
+		int xStep = 550/50;
 				
-		for(int i=0; i<30;i++){
+		for(int i=0; i<50;i++){
 			xB = xB + xStep;
 			xC = xC - xStep;
 			
-			if(i<15){
+			if(i<25){
 				yB--;
 				yC++;
 			}
@@ -71,7 +113,7 @@ public class LineAnimation extends JPanel{
 			
 			repaint();
 			try {
-				Thread.sleep(5);
+				Thread.sleep(4);
 			} catch (InterruptedException e) {}
 		}
 		reset();
@@ -79,12 +121,12 @@ public class LineAnimation extends JPanel{
 	
 	public void movment3(){
 		
-		int xStep = 480/80;
+		int xStep = 1100/100;
 				
-		for(int i=0; i<80;i++){
+		for(int i=0; i<100;i++){
 			xA = xA + xStep;
 			xC = xC - xStep;
-			if(i<40){
+			if(i<50){
 				yA--;
 				yC++;
 			}
@@ -94,7 +136,7 @@ public class LineAnimation extends JPanel{
 			}
 			repaint();
 			try {
-				Thread.sleep(3);
+				Thread.sleep(2);
 			} catch (InterruptedException e) {}
 		}
 		reset();
@@ -105,34 +147,36 @@ public class LineAnimation extends JPanel{
 		g.clearRect(0, 0, this.getWidth(),this.getHeight());
 		if(ball){
 			g.setColor(Color.BLUE);
-			g.fillOval(140, 400, 50, 50);
+			g.fillOval(ballX, ballY, 100, 100);
 		}
 		g.setColor(Color.RED);
-		g.fillRect(xA, yA, 100, 120);
+		g.fillRect(xA, yA, 200, 240);
 		g.setColor(Color.BLACK);
-		g.drawRect(xA, yA, 100, 120);
+		g.drawRect(xA, yA, 200, 240);
 		g.setColor(Color.RED);
-		g.fillRect(xB, yB, 100, 120);
+		g.fillRect(xB, yB, 200, 240);
 		g.setColor(Color.BLACK);
-		g.drawRect(xB, yB, 100, 120);
+		g.drawRect(xB, yB, 200, 240);
 		g.setColor(Color.RED);
-		g.fillRect(xC, yC, 100, 120);
+		g.fillRect(xC, yC, 200, 240);
 		g.setColor(Color.BLACK);
-		g.drawRect(xC, yC, 100, 120);		
+		g.drawRect(xC, yC, 200, 240);		
 		
 	}
 	private void reset(){
-		xA = 115; 
+		xA = 200; 
 		yA = 330;
-		xB = 355;
+		xB = 850;
 		yB = 330;
-		xC = 595;
+		xC = 1500;
 		yC = 330;
+		ballX = 250;
+		ballY = 425;
 		repaint();
 	}
 	
 	@Override
 	public Dimension getPreferredSize() {
-		return new Dimension(800,600);
+		return new Dimension(1900,875);
 	}
 }

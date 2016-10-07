@@ -7,16 +7,11 @@ import javax.swing.JOptionPane;
 public class Main {
 
 	public static void main(String[] args) {
-		//Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
             	int robotAssist = JOptionPane.showConfirmDialog(null, "R?", "R?", JOptionPane.YES_NO_OPTION);
             	String currentEmail = JOptionPane.showInputDialog("Please enter your Augustana Email");
             	JOptionPane.showMessageDialog(null, "Ready?");
-                /*TriAnimationFrame triFrame = new TriAnimationFrame();
-                triFrame.setVisible(true);
-                triFrame.startAnimation();*/
             	LineAnimationFrame lineFrame = null;
                 RecordWriter writer = new RecordWriter();
             	DataStore data = new DataStore();

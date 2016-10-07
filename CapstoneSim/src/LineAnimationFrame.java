@@ -81,11 +81,11 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 		Dimension minSize = new Dimension(75, 25);
 		firstGuess = new JTextField();
 		firstGuess.setName("firstGuess");
-		firstGuess.setFont(new Font(Font.SERIF,Font.BOLD,25));
+		firstGuess.setFont(new Font(Font.SERIF, Font.BOLD, 25));
 		firstGuess.setPreferredSize(minSize);
 		finalGuess = new JTextField();
 		finalGuess.setName("finalGuess");
-		finalGuess.setFont(new Font(Font.SERIF,Font.BOLD,25));
+		finalGuess.setFont(new Font(Font.SERIF, Font.BOLD, 25));
 		finalGuess.setPreferredSize(minSize);
 		JPanel input = new JPanel(new FlowLayout());
 		input.add(new JLabel("First Guess"));
@@ -114,6 +114,33 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 		new Thread(animation).start();
 	}
 
+	private void showCorrect(String correct) {
+		showCorrectRunner lift = new showCorrectRunner(animationPanel, correct);
+		new Thread(lift).start();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private JPanel getCorrectAnswerPanel(String correct) {
+		JPanel answerPanel = new JPanel();
+		JLabel answer = new JLabel();
+		answer.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+		answer.setForeground(Color.BLUE);
+		if (correct.equalsIgnoreCase("a")) {
+			answer.setText("The correct answer was: A");
+		} else if (correct.equalsIgnoreCase("b")) {
+			answer.setText("The correct answer was: B");
+		} else {
+			answer.setText("The correct answer was: C");
+		}
+		answerPanel.add(answer);
+		return answerPanel;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		Object source = event.getSource();
@@ -124,13 +151,24 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 		if (sourceName.equals("Next")) {
 			firstG = firstGuess.getText();
 			finalG = finalGuess.getText();
-			boolean correctAnswer = CheckResponce.checkAnswer(finalG, trialNum);
-			if (correctAnswer) {
+			if (trialNum < 21) {
+				if (firstG.length() != 1 || finalG.length() != 1) {
+					JOptionPane.showMessageDialog(this,
+							"Invalid Responce\nPlease make sure you have answered A, B, or C \n for both First and Final guess",
+							"Invalid Responce", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+			}
+			String curCorAns = CheckResponce.getCorrect(trialNum);
+			if (finalG.equalsIgnoreCase(curCorAns)) {
 				JOptionPane.showMessageDialog(this, corPanel);
 				RecordWriter.addEntry();
 			} else {
 				JOptionPane.showMessageDialog(this, incorPanel);
+				JPanel answer = getCorrectAnswerPanel(curCorAns);
+				JOptionPane.showMessageDialog(this, answer);
 			}
+			// showCorrect(curCorAns);
 			data.setRoundAnswers(firstG, finalG, trialNum);
 			CheckResponce.updataAnswerLists(firstG, finalG, trialNum);
 			firstGuess.setText("");
@@ -158,6 +196,9 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 			}
 
 			trialNum++;
+			if (trialNum > 20) {
+				firstGuess.setText("------------");
+			}
 			curTrial.setText("Trial: " + String.valueOf(trialNum));
 		}
 	}

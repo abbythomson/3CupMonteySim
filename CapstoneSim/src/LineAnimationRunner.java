@@ -9,7 +9,7 @@ public class LineAnimationRunner implements Runnable {
 	
 	@Override
 	public void run() {
-		panel.startAnim();
+		panel.liftA();
 		for(int i = 0; i < 15; i++){
 			double randMove = (int)(Math.random()*3+1);
 			if(randMove==1){

@@ -30,7 +30,6 @@ public class RecordWriter {
 		String[] finalA = data.getFinal();
 		fw.write("Guesses:\n");
 		for(int i=0;i<firstA.length;i++){
-			System.out.println(firstA[i]+" : "+finalA[i]);
 			fw.write("["+firstA[i]+", "+finalA[i]+"] ");
 		}
 		fw.write("\n");
