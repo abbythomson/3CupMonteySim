@@ -69,28 +69,37 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 		incor.setForeground(Color.red);
 		incor.setText("Incorrect");
 		incorPanel.add(incor, BorderLayout.CENTER);
-
 		JButton next = new JButton("Next");
 		next.setName("Next");
 		next.addActionListener(this);
 		labels.add(new JLabel(""));
-		labels.add(new JLabel("A"));
-		labels.add(new JLabel("B"));
-		labels.add(new JLabel("C"));
+		JLabel aLabel = new JLabel("A");
+		aLabel.setFont(new Font(Font.SANS_SERIF,Font.BOLD,35));
+		labels.add(aLabel);
+		JLabel bLabel = new JLabel("B");
+		bLabel.setFont(new Font(Font.SANS_SERIF,Font.BOLD,35));
+		labels.add(bLabel);
+		JLabel cLabel = new JLabel("C");
+		cLabel.setFont(new Font(Font.SANS_SERIF,Font.BOLD,35));
+		labels.add(cLabel);
 		south.add(labels, BorderLayout.NORTH);
-		Dimension minSize = new Dimension(75, 25);
+		Dimension minSize = new Dimension(75, 40);
 		firstGuess = new JTextField();
 		firstGuess.setName("firstGuess");
-		firstGuess.setFont(new Font(Font.SERIF, Font.BOLD, 25));
+		firstGuess.setFont(new Font(Font.SERIF, Font.BOLD, 35));
 		firstGuess.setPreferredSize(minSize);
 		finalGuess = new JTextField();
 		finalGuess.setName("finalGuess");
-		finalGuess.setFont(new Font(Font.SERIF, Font.BOLD, 25));
+		finalGuess.setFont(new Font(Font.SERIF, Font.BOLD, 35));
 		finalGuess.setPreferredSize(minSize);
 		JPanel input = new JPanel(new FlowLayout());
-		input.add(new JLabel("First Guess"));
+		JLabel firstGuessLabel = new JLabel("First Guess");
+		firstGuessLabel.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,30));
+		input.add(firstGuessLabel);
 		input.add(firstGuess);
-		input.add(new JLabel("Final Guess"));
+		JLabel finalGuessLabel = new JLabel("Final Guess");
+		finalGuessLabel.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,30));
+		input.add(finalGuessLabel);
 		input.add(finalGuess);
 		input.add(next);
 		south.add(input, BorderLayout.CENTER);
@@ -182,6 +191,10 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 				int choice = JOptionPane.showOptionDialog(this, message, "Choose", JOptionPane.PLAIN_MESSAGE, 0, null,
 						buttons, buttons[0]);
 				data.setAssistant(choice);
+				if(data.getAssitantRobot()){
+					JOptionPane.showMessageDialog(this, "Plese inform TAVI of your decision.\n Click top button if using TAVI's assistant or bottom button if not.");
+				}
+				startAnimation();
 			} else if (trialNum < 24) {
 				startAnimation();
 			} else if (trialNum == 24) {
@@ -202,5 +215,6 @@ public class LineAnimationFrame extends JFrame implements ActionListener {
 			curTrial.setText("Trial: " + String.valueOf(trialNum));
 		}
 	}
+	
 
 }

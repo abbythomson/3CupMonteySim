@@ -177,6 +177,6 @@ public class LineAnimation extends JPanel{
 	
 	@Override
 	public Dimension getPreferredSize() {
-		return new Dimension(1900,875);
+		return new Dimension(1875,850);
 	}
 }
